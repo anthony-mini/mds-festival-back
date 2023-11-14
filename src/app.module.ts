@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { EventsModule } from './events/events.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { FestivaliersModule } from './festivaliers/festivaliers.module';
+import { SitesModule } from './sites/sites.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { FestivaliersModule } from './festivaliers/festivaliers.module';
     }),
     EventsModule,
     FestivaliersModule,
+    SitesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
