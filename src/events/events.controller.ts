@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Param, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Param,
+  Body,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { EventsService } from './events.service';
 import { InjectDataSource } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
@@ -36,6 +44,35 @@ export class EventsController {
       "fin": "2023-06-20 19:00:00"
     }
     */
+  }
+
+  @Patch(':id')
+  update(@Param('id') id_evenement: number, @Body() json) {
+    return this.bdd.query('UPDATE evenement SET ? WHERE id_evenement = ?', [
+      json,
+      id_evenement,
+    ]);
+    /***
+     * Dans Postman, dans body raw JSON :
+     * [HOST]/[PATH]/1
+     * {
+        "titre": "Concert Fermeture",
+        "description": "Concert Fermeture",
+        "debut": "2023-06-20 16:00:00",
+        "fin": "2023-06-20 22:00:00"
+     }
+     */
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id_evenement: number) {
+    return this.bdd.query('DELETE FROM evenement WHERE id_evenement = ?', [
+      id_evenement,
+    ]);
+    /**
+     * Dans Postman, dans body raw JSON :
+     * [HOST]/[PATH]/1
+     */
   }
 }
 
