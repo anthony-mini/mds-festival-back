@@ -15,6 +15,7 @@ import { SitesModule } from './sites/sites.module';
       username: 'root',
       password: 'root',
       database: 'festival',
+      autoLoadEntities: true,
     }),
     EventsModule,
     FestivaliersModule,
