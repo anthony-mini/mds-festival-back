@@ -44,6 +44,8 @@ export class EventsController {
       "fin": "2023-06-20 19:00:00"
     }
     */
+
+    // NOTE : Après modif de la table, on pense à requeter findAll() pour vérifier que la table a bien été modifiée.
   }
 
   @Patch(':id')

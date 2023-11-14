@@ -1,7 +1,16 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
 import { SitesService } from './sites.service';
 import { CreateSiteDto } from './dto/create-site.dto';
 import { UpdateSiteDto } from './dto/update-site.dto';
+import { Site } from './entities/site.entity';
 
 @Controller('sites')
 export class SitesController {
@@ -13,7 +22,7 @@ export class SitesController {
   }
 
   @Get()
-  findAll() {
+  findAll(): Promise<Site[]> {
     return this.sitesService.findAll();
   }
 
