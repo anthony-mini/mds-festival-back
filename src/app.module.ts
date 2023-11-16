@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FestivaliersModule } from './festivaliers/festivaliers.module';
 import { SitesModule } from './sites/sites.module';
 import { ConfigModule } from '@nestjs/config';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { ConfigModule } from '@nestjs/config';
     EventsModule,
     FestivaliersModule,
     SitesModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
