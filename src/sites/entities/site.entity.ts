@@ -1,4 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Lieu } from './lieu.entity';
 
 // Entity présentes des données persistantes.
 
@@ -15,4 +17,7 @@ export class Site {
 
   @Column()
   capacite: number;
+
+  @OneToMany(() => Lieu, (lieu) => lieu.site)
+  lieux: Lieu[];
 }
