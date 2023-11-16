@@ -22,7 +22,7 @@ import { UsersModule } from './users/users.module';
       port: +process.env.DB_PORT,
       host: process.env.DB_HOST,
       autoLoadEntities: true,
-      synchronize: true,
+      // synchronize: true,
     }),
     EventsModule,
     FestivaliersModule,

@@ -1,5 +1,6 @@
 import { Column, Entity, Index, PrimaryGeneratedColumn } from 'typeorm';
 import { Role } from '../enums/role-user.enums';
+import { Exclude } from 'class-transformer';
 @Entity()
 export class User {
   @PrimaryGeneratedColumn({ name: 'id_user' })
@@ -10,6 +11,7 @@ export class User {
   email: string;
 
   @Index()
+  @Exclude()
   @Column({ length: 150 })
   hash: string;
 
